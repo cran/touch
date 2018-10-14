@@ -23,4 +23,3 @@ drg <- dxDat$drg
 icd <- dxDat[, - 1L]
 }
 \keyword{datasets}
-

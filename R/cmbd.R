@@ -22,7 +22,6 @@
 ##' drg <- dxDat$drg
 ##' icd <- dxDat[, -1L]
 ##' output <- cmbd(icd, drg=drg)
-##' @importFrom stringr str_trim
 ##' @export cmbd
 cmbd <- function(icd, drg = NULL, needClean = TRUE, needPrep = TRUE) {
   if (! is.matrix(icd)) icd <- as.matrix(icd)
@@ -116,8 +115,8 @@ chibirInfection <- function(icd, needClean=FALSE, needPrep=FALSE) {
 icd9Clean <- function(input, style = c("touch", "hcup")) {
     style <- match.arg(style)
     if (! is.matrix(input)) input <- as.matrix(input)
-    if (style == "touch") {
-        output <- trimws(input)
+    if (identical(style, "touch")) {
+        output <- toupper(trimws(input))
         nc <- nchar(output)
         output <- ifelse(nc == 3, paste0(output, "00"), output)
         output <- ifelse(nc == 4, paste0(output, "0"), output)

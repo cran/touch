@@ -32,4 +32,3 @@ output <- icd9Clean(icd)
 \author{
 Jun Yan and Wenjie Wang
 }
-

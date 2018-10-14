@@ -33,11 +33,10 @@ drg <- dxDat$drg
 icd <- dxDat[, -1L]
 output <- cmbd(icd, drg=drg)
 }
-\author{
-Jun Yan
-}
 \references{
 Elixhauser et. al. (1998)
 }
+\author{
+Jun Yan
+}
 \keyword{manipulation}
-
