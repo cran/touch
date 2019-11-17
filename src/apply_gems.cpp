@@ -1,3 +1,20 @@
+//
+// R package touch by Wenjie Wang, Yan Li, and Jun Yan
+// Copyright (C) 2015-2019
+//
+// This file is part of the R package touch.
+//
+// The R package touch is free software: You can redistribute it and/or
+// modify it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or any later
+// version (at your option). See the GNU General Public License at
+// <https://www.gnu.org/licenses/> for details.
+//
+// The R package touch is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//
+
 // [[Rcpp::plugins(cpp11)]]
 #include <Rcpp.h>
 
@@ -46,8 +63,11 @@ inline std::vector<std::string> uni_sort(const std::vector<std::string>& x)
     return out;
 }
 
-// function that splits string by commas
-inline std::vector<std::string> split_string(const std::string& x)
+// function that splits string by commas and plus sign
+inline std::vector<std::string> split_string(
+    const std::string& x,
+    const int& split_plus = 0
+    )
 {
     std::vector<std::string> out;
     size_t pos {0};
@@ -56,21 +76,27 @@ inline std::vector<std::string> split_string(const std::string& x)
         return out;
     }
     for (size_t i {0}; i < x.length(); ) {
-        pos = x.find(',', i);
+        if (split_plus) {
+            pos = std::min(x.find(',', i), x.find('+', i));
+        } else {
+            pos = x.find(',', i);
+        }
         out.push_back(x.substr(i, pos - i));
         if (pos == std::string::npos) break;
         i = pos + 1;
     }
     return out;
 }
+
 // rcpp version of the strsplit function with split = "," in R
-inline Rcpp::CharacterVector rcpp_split_string(const Rcpp::CharacterVector& x)
+// [[Rcpp::export]]
+Rcpp::CharacterVector rcpp_split_string(const Rcpp::CharacterVector& x)
 {
     if (Rcpp::CharacterVector::is_na(x[0])) {
         return NA_STRING;
     } else {
         std::vector<std::string> xx {
-            split_string(Rcpp::as<std::string>(x[0])) };
+            split_string(Rcpp::as<std::string>(x[0]), 0) };
         Rcpp::CharacterVector out(xx.size());
         // implicit conversion
         out = xx;
@@ -79,7 +105,8 @@ inline Rcpp::CharacterVector rcpp_split_string(const Rcpp::CharacterVector& x)
 }
 
 // [[Rcpp::export]]
-Rcpp::List rcpp_strsplit(const Rcpp::CharacterVector& x)
+Rcpp::List rcpp_strsplit(
+    const Rcpp::CharacterVector& x)
 {
     return Rcpp::lapply(x, rcpp_split_string);
 }
@@ -101,7 +128,6 @@ inline std::string cat_string(const std::vector<std::string>& x)
     return out;
 }
 // concatenate by commas
-// [[Rcpp::export]]
 std::string cat_dx(const std::vector<std::string>& x)
 {
     std::vector<std::string> xVec, tmp;
@@ -114,7 +140,6 @@ std::string cat_dx(const std::vector<std::string>& x)
 }
 
 // element-wise concatenate by commas for two vectors
-// [[Rcpp::export]]
 std::vector<std::string> cat_dx_pair(
     const std::vector<std::string>& a,
     const std::vector<std::string>& b
@@ -266,8 +291,9 @@ inline std::string gem_m2m_scalar(
     )
 {
     std::string out;
-    if (dx.find(',') != std::string::npos) {
-        out = cat_dx(gem_o2m(split_string(dx), gem_map));
+    if (dx.find(',') != std::string::npos ||
+        dx.find('+') != std::string::npos) {
+        out = cat_dx(gem_o2m(split_string(dx, 1), gem_map));
     } else {
         out = gem_o2m_scalar(dx, gem_map);
     }

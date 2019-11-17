@@ -29,16 +29,14 @@ install.packages("touch")
 
 ## Development
 
-[![Build Status][travis-master]][travis]
-
 You may install the latest version under development with the help of
 **remotes** (or **devtools**) as follows:
 
 ```R
 if (! require(remotes)) install.packages("remotes")
-remotes::install_github("LiYanStat/touch")
-## or use devtools
-## devtools::install_github("LiYanStat/touch")
+remotes::install_github("wenjie2wang/touch")
+## or use devtools if it is installed
+## devtools::install_github("wenjie2wang/touch")
 ```
 
 
@@ -58,5 +56,4 @@ FITNESS FOR A PARTICULAR PURPOSE.
 [cran]: https://CRAN.R-project.org/package=touch
 [travis]: https://travis-ci.org/wenjie2wang/touch
 [travis-master]: https://travis-ci.org/wenjie2wang/touch.svg?branch=master
-[travis-dev]: https://travis-ci.org/wenjie2wang/touch.svg?branch=dev
 [gpl]: https://www.gnu.org/licenses/
