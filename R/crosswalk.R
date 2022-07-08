@@ -1,6 +1,6 @@
 ##
 ## R package touch by Wenjie Wang, Yan Li, and Jun Yan
-## Copyright (C) 2015-2019
+## Copyright (C) 2015-2022
 ##
 ## This file is part of the R package touch.
 ##
@@ -121,20 +121,20 @@
 ##'
 ##' 2017-ICD-10-CM-and-GEMs.  The U.S. Centers for Medicare & Medicaid
 ##' Services. 22 August, 2016.
-##' \url{https://www.cms.gov/Medicare/Coding/ICD10/2017-ICD-10-CM-and-GEMs.html}.
-##' Accessed 28 September, 2018.
+##' \url{https://www.cms.gov/medicare/coding/icd10/2017-icd-10-cm-and-gems}.
+##' Accessed 5 July, 2022.
 ##'
 ##'
 ##' 2018-ICD-10-CM-and-GEMs.  The U.S. Centers for Medicare & Medicaid
 ##' Services. 11 August, 2017.
-##' \url{https://www.cms.gov/Medicare/Coding/ICD10/2018-ICD-10-CM-and-GEMs.html}.
-##' Accessed 28 September, 2018.
+##' \url{https://www.cms.gov/medicare/coding/icd10/2018-icd-10-cm-and-gems}.
+##' Accessed 5 July, 2022.
 ##'
 ##'
 ##' The AHRQ MapIT Automated In-house Stand-alone Mapping Tool. Agency for
 ##' Healthcare Research and Quality. 26 March, 2018.
-##' \url{https://www.qualityindicators.ahrq.gov/resources/toolkits.aspx}.
-##' Accessed 28 September, 2018.
+##' \url{https://qualityindicators.ahrq.gov/resources/toolkits}.
+##' Accessed 5 July, 2022.
 ##'
 ##' @seealso \code{\link{find_billable}}
 ##' @example inst/examples/icd_map.R

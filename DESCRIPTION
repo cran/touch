@@ -1,14 +1,14 @@
 Package: touch
 Title: Tools of Utilization and Cost in Healthcare
-Version: 0.1-5
-Date: 2019-11-17
+Version: 0.1-6
 Authors@R: c(
-    person(given = "Wenjie", family = "Wang", role = c("aut", "cre"),
-           email = "wenjie.2.wang@uconn.edu",
+    person(given = "Wenjie", family = "Wang",
+           role = c("aut", "cre"),
+           email = "wang@wwenjie.org",
            comment = c(ORCID = "0000-0003-0363-3180")),
-    person(given = "Yan", family = "Li", role = "aut",
-           comment = c(ORCID = "0000-0003-4401-7296")),
-    person(given = "Jun", family = "Yan", role = "aut")
+    person(given = "Yan", family = "Li", role = "aut"),
+    person(given = "Jun", family = "Yan", role = "aut",
+           comment = c(ORCID = "0000-0003-4401-7296"))
     )
 Description: R implementation of the software tools developed in the H-CUP
     (Healthcare Cost and Utilization Project) <https://www.hcup-us.ahrq.gov>
@@ -29,10 +29,10 @@ URL: https://github.com/wenjie2wang/touch
 BugReports: https://github.com/wenjie2wang/touch/issues
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2019-11-17 20:10:44 UTC; wenjie
+Packaged: 2022-07-07 22:44:03 UTC; wenjie
 Author: Wenjie Wang [aut, cre] (<https://orcid.org/0000-0003-0363-3180>),
-  Yan Li [aut] (<https://orcid.org/0000-0003-4401-7296>),
-  Jun Yan [aut]
-Maintainer: Wenjie Wang <wenjie.2.wang@uconn.edu>
+  Yan Li [aut],
+  Jun Yan [aut] (<https://orcid.org/0000-0003-4401-7296>)
+Maintainer: Wenjie Wang <wang@wwenjie.org>
 Repository: CRAN
-Date/Publication: 2019-11-17 20:30:02 UTC
+Date/Publication: 2022-07-08 08:50:02 UTC
